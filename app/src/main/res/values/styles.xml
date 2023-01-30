@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    
+    <style name="rb_content_style">
+
+<!--       =-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_weight="1"-->
+
+<!--        android:textSize="14sp"-->
+<!--        android:textColor="@drawable/rb_content_home_color"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:gravity="center"-->
+<!--        android:drawablePadding="5dp"-->
+        <item name="android:button">@null</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@drawable/rb_content_home_color</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+
+        <item name="android:gravity">center</item>
+        <item name="android:drawablePadding">5dp</item>
+
+    </style>
+</resources>

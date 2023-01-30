@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <com.xyz.newsh.view.NoScrollViewPager
+        android:id="@+id/viewpage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/bottom_tab_bg"
+        >
+        <RadioButton
+            android:id="@+id/home"
+            android:text="首页"
+            android:drawableTop="@drawable/rb_content_home"
+
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:textSize="14sp"
+            android:textColor="@drawable/rb_content_home_color"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:drawablePadding="5dp"/>
+
+        <RadioButton
+            android:id="@+id/news"
+            android:text="新闻"
+            android:drawableTop="@drawable/rb_content_news"
+            style="@style/rb_content_style"
+         />
+
+        <RadioButton
+            android:id="@+id/smart"
+            android:text="政要"
+            android:drawableTop="@drawable/rb_content_smart"
+            style="@style/rb_content_style"
+            />
+        <RadioButton
+            android:id="@+id/govaffair"
+            android:text="新闻"
+            android:drawableTop="@drawable/rb_content_govaffair"
+            style="@style/rb_content_style"
+            />
+        <RadioButton
+            android:id="@+id/setting"
+            android:text="设置"
+            android:drawableTop="@drawable/rb_content_setting"
+            style="@style/rb_content_style"
+            />
+
+
+
+    </RadioGroup>
+
+</LinearLayout>
