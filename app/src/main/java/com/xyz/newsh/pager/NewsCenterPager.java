@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -155,6 +156,9 @@ public class NewsCenterPager extends BasePager {
             MenuDetailBasePager detaliBasePager = detailBasePagers.get(position);//
             View rootView = detaliBasePager.rootView;
             detaliBasePager.initData();//初始化数据
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            rootView.setLayoutParams(params);
             fl_content.addView(rootView);
 
         }else{

@@ -8,12 +8,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.xyz.newsh.R;
 import com.xyz.newsh.base.MenuDetailBasePager;
 import com.xyz.newsh.domain.NewsCenterBean;
 import com.xyz.newsh.menudetailpager.tabdetail.TabDetailPager;
+import com.xyz.newsh.view.ViewPagerIndicator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +27,10 @@ public class NewsMenuDetailPager extends MenuDetailBasePager {
     public List<NewsCenterBean.Children> dataEntityList;
 
     List<TabDetailPager> tabDetailPagers;
+
+    ViewPagerIndicator viewPagerIndicator;
+
+    List<String> titleList;
     public NewsMenuDetailPager(Context context) {
         super(context);
     }
@@ -43,20 +50,32 @@ public class NewsMenuDetailPager extends MenuDetailBasePager {
 
     @Override
     public View initView() {
-        viewPager=new ViewPager(content);
+        titleList=new ArrayList<>();
+        //viewPager=new ViewPager(content);
+        View view = View.inflate(content, R.layout.news_menu_detailpager, null);
+        viewPager = view.findViewById(R.id.viewpager);
+        viewPagerIndicator = view.findViewById(R.id.viewpagerindicator);
 
         tabDetailPagers=new ArrayList<>();
         List<NewsCenterBean.Children> children = dataEntity.getChildren();
         for (int i = 0; i < children.size(); i++) {
           tabDetailPagers.add(new TabDetailPager(content, children.get(i)));
+          titleList.add(children.get(i).getTitle());
         }
         viewPager.setAdapter(new MyPagerAdapter());
+
+
         TextView textView = new TextView(content);
         textView.setText("新闻的详情页面");
         textView.setTextSize(20);
         textView.setTextColor(Color.RED);
         textView.setGravity(Gravity.CENTER);
-        return viewPager;
+
+        viewPagerIndicator.setTabTitle(titleList);
+        viewPagerIndicator.setViewPager(viewPager);
+
+
+        return view;
     }
     @Override
     public void initData() {
@@ -66,6 +85,14 @@ public class NewsMenuDetailPager extends MenuDetailBasePager {
 
 
     class MyPagerAdapter extends PagerAdapter{
+
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position) {
+
+
+            return dataEntity.getChildren().get(position).getTitle();
+        }
 
         @Override
         public int getCount() {
